@@ -1,0 +1,4 @@
+ CREATE TABLE Genres (    genreId INT PRIMARY KEY auto_increment,    genreName VARCHAR(255));
+CREATE TABLE Artists (    artistId INT PRIMARY KEY auto_increment,    artistName VARCHAR(255),    genre_id INT,    FOREIGN KEY (genre_id) REFERENCES Genres(genreId));
+CREATE TABLE Albums (    albumId INT PRIMARY KEY auto_increment,    albumTitle VARCHAR(255),    releaseDate DATE,    artist_id INT,    FOREIGN KEY (artist_id) REFERENCES Artists(artistId));
+ CREATE TABLE Songs (    songId INT PRIMARY KEY auto_increment,    songTitle VARCHAR(255),    duration INT,    album_id INT,    artist_id INT,    genre_id INT,    FOREIGN KEY (album_id) REFERENCES Albums(albumId),    FOREIGN KEY (artist_id) REFERENCES Artists(artistId),    FOREIGN KEY (genre_id) REFERENCES Genres(genreId));
