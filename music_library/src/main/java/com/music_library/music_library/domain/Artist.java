@@ -1,26 +1,25 @@
 package com.music_library.music_library.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-
-import java.util.Date;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
-@Table(name = "Artist")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Table(name = "artists")
+@Getter
+@Setter
 public class Artist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer artistId;  // primary key
+    @Column(name = "artist_id")
+    private Long id;
 
-    private String artistName;
-    private Date dateOfBirth;
-    private String country;
+    @Column(name = "artist_name")
+    private String name;
 
-    // Other attributes related to the artist
+    @ManyToOne
+    @JoinColumn(name = "genre_id")
+    private Genre genre;
+
+    // Getters and setters
 }

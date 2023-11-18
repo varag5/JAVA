@@ -1,22 +1,20 @@
 package com.music_library.music_library.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 
 import jakarta.persistence.*;
-import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "Genres")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Table(name = "genres")
+@Getter
+@Setter
 public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer genreId;  // primary key
+    @Column(name = "genre_id")
+    private Long genreId;
 
-    private String genreName;
+    private String name;
 
-    // Other attributes related to the genre
+    // Getters and setters
 }

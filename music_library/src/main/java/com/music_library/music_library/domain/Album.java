@@ -1,29 +1,27 @@
 package com.music_library.music_library.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 
-import lombok.NoArgsConstructor;
 import java.util.Date;
 
 @Entity
-@Table(name = "Albums")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-
+@Table(name = "albums")
+@Getter
+@Setter
 public class Album {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer albumId;  // primary key
+    @Column(name = "album_id")
+    private Long albumId;
 
-    private String albumTitle;
+    private String title;
+
     private Date releaseDate;
 
     @ManyToOne
     @JoinColumn(name = "artist_id")
-    private Artist artist;  // foreign key referencing Artist class
+    private Artist artist;
 
-    // Other attributes related to the album
+    // Getters and setters
 }
