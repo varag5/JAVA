@@ -14,6 +14,8 @@ public class Genre {
     @Column(name = "genre_id")
     private Long genreId;
 
+
+    //@Column(name = "genre_name")
     private String name;
 
     // Getters and setters

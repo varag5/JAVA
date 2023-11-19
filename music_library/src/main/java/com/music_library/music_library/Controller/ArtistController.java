@@ -1,12 +1,16 @@
 package com.music_library.music_library.Controller;
 
+import com.music_library.music_library.Controller.DTO.ArtistRequestDTO;
+import com.music_library.music_library.Repository.implementation.GenreRepository;
 import com.music_library.music_library.domain.Artist;
 import com.music_library.music_library.Repository.implementation.ArtistRepository;
+import com.music_library.music_library.domain.Genre;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RequestMapping("/Artist")
@@ -14,7 +18,7 @@ import java.util.List;
 @RestController
 public class ArtistController {
     private final ArtistRepository artistRepository;
-
+    private  final GenreRepository genreRepository;
     @GetMapping
     public List<Artist> getAllGames() {
 
@@ -22,7 +26,39 @@ public class ArtistController {
         return artistRepository.getAllArtists();
     }
     @PostMapping
-    public Artist addArtist(Artist artist) {
-        return artistRepository.addArtist(artist);
+    public Artist addArtist(@RequestBody ArtistRequestDTO artist) {
+        try {
+            artistRepository.addArtist(artist);
+            return null;
+
+        } catch (Exception e) {
+
+            return null;
+        }
     }
+    @PutMapping("/update/{id}")
+    public ResponseEntity<String> updateArtist(@PathVariable Long id, @RequestBody ArtistRequestDTO artistRequestDTO) {
+        try {
+            // Check if the artist with the given ID exists
+            Artist existingArtist = artistRepository.getArtistById(id);
+            if (existingArtist == null) {
+                return ResponseEntity.notFound().build();
+            }
+
+            // Update existing artist with data from DTO
+            existingArtist.setName(artistRequestDTO.getName());
+
+            // Assuming you have a GenreService to retrieve the Genre by ID
+            Genre genre = genreRepository.getGenreById(artistRequestDTO.getGenreId());
+            existingArtist.setGenre(genre);
+
+            // Update the entity
+            artistRepository.updateArtist(existingArtist);
+
+            return ResponseEntity.ok("Artist updated successfully");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error updating artist");
+        }
+    }
+
 }
