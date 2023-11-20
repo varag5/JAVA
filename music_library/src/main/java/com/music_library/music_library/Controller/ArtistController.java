@@ -61,4 +61,23 @@ public class ArtistController {
         }
     }
 
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteArtist(@PathVariable Long id) {
+        try {
+            // Check if the artist with the given ID exists
+            Artist existingArtist = artistRepository.getArtistById(id);
+            if (existingArtist == null) {
+                return ResponseEntity.notFound().build();
+            }
+
+            // Delete the entity
+            artistRepository.deleteArtist(id);
+
+            return ResponseEntity.ok("Artist deleted successfully");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error deleting artist");
+        }
+    }
+
+
 }
