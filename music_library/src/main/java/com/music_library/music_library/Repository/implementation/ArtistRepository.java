@@ -2,8 +2,10 @@ package com.music_library.music_library.Repository.implementation;
 
 import com.music_library.music_library.Controller.DTO.ArtistRequestDTO;
 import com.music_library.music_library.Repository.abstraction.IArtistRepository;
+import com.music_library.music_library.domain.Album;
 import com.music_library.music_library.domain.Artist;
 import com.music_library.music_library.domain.Genre;
+import com.music_library.music_library.domain.Song;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
@@ -37,7 +39,7 @@ public class ArtistRepository implements IArtistRepository {
 
     @Override
     public Artist getArtistById(Long id) {
-            return entityManager.find(Artist.class, id);
+        return entityManager.find(Artist.class, id);
     }
 
     @Override
@@ -61,6 +63,7 @@ public class ArtistRepository implements IArtistRepository {
             throw new RuntimeException("Error adding artist", e);
         }
     }
+
     @Override
     @Transactional
     public Artist updateArtist(Artist artist) {
@@ -70,10 +73,35 @@ public class ArtistRepository implements IArtistRepository {
     @Override
     @Transactional
     public void deleteArtist(Long id) {
-        Artist artist = entityManager.find(Artist.class, id);
-        if (artist != null) {
-            entityManager.remove(artist);
+        try {
+            Artist artist = entityManager.find(Artist.class, id);
+            if (artist != null) {
+                // Manually delete related records in the songs table
+                List<Song> songs = entityManager.createQuery("SELECT s FROM Song s WHERE s.album.artist.id = :artistId", Song.class)
+                        .setParameter("artistId", id)
+                        .getResultList();
+
+                // Delete related songs
+                for (Song song : songs) {
+                    entityManager.remove(song);
+                }
+
+                // Manually delete related records in the albums table
+                List<Album> albums = entityManager.createQuery("SELECT a FROM Album a WHERE a.artist.id = :artistId", Album.class)
+                        .setParameter("artistId", id)
+                        .getResultList();
+
+                // Delete related albums
+                for (Album album : albums) {
+                    entityManager.remove(album);
+                }
+
+                // Delete the artist
+                entityManager.remove(artist);
+            }
+        } catch (Exception e) {
+            log.error("Error deleting artist with ID: " + id, e);
+            throw new RuntimeException("Error deleting artist", e);
         }
     }
-
 }
