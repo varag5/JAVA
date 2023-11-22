@@ -20,7 +20,7 @@ public class ArtistController {
     private final ArtistRepository artistRepository;
     private  final GenreRepository genreRepository;
     @GetMapping
-    public List<Artist> getAllGames() {
+    public List<Artist> getAllnames() {
 
         var x = artistRepository.getAllArtists();
         return artistRepository.getAllArtists();
