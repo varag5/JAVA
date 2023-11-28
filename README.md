@@ -14,8 +14,8 @@ http://localhost:8080/swagger-ui/index.html#/
 
 
 #### Used Roles
-ADMIN, username: username1, password: admin1
-USER, username: username2, password: user
+Role1: ADMIN, username: username1, password: admin1
+Role2: NORMAL USER, username: username2, password: user
 
 
 #### Data Domain
