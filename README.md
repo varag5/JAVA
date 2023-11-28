@@ -14,7 +14,7 @@ Role1: ADMIN, username: username1, password: admin1
 Role2: NORMAL USER, username: username2, password: user
 
 
-#### Data Domain
+#### UML Diagram of the Data Domain
 
 The data model is available here: https://dbdiagram.io/d/65480cf47d8bbd646587cfff
 
