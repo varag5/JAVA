@@ -1,4 +1,4 @@
-package com.music_library.music_library.Repository.abstraction;
+package com.music_library.music_library.Repository.Interface;
 
 import com.music_library.music_library.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,11 +1,10 @@
 package com.music_library.music_library.Controller;
 
 import com.music_library.music_library.Controller.DTO.ArtistRequestDTO;
-import com.music_library.music_library.Repository.implementation.GenreRepository;
+import com.music_library.music_library.Repository.implementation.GenreRepositoryImp;
 import com.music_library.music_library.domain.Artist;
-import com.music_library.music_library.Repository.implementation.ArtistRepository;
+import com.music_library.music_library.Repository.implementation.ArtistRepositoryImp;
 import com.music_library.music_library.domain.Genre;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +16,8 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 public class ArtistController {
-    private final ArtistRepository artistRepository;
-    private  final GenreRepository genreRepository;
+    private final ArtistRepositoryImp artistRepository;
+    private  final GenreRepositoryImp genreRepository;
     @GetMapping
     public List<Artist> getAllnames() {
 

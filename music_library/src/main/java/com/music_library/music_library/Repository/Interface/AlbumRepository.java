@@ -1,10 +1,10 @@
-package com.music_library.music_library.Repository.abstraction;
+package com.music_library.music_library.Repository.Interface;
 
 import com.music_library.music_library.domain.Album;
 
 import java.util.List;
 
-public interface IAlbumRepository {
+public interface AlbumRepository {
 
     List<Album> getAllAlbums();
 }

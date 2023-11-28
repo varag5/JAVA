@@ -1,9 +1,9 @@
-package com.music_library.music_library.Repository.abstraction;
+package com.music_library.music_library.Repository.Interface;
 import com.music_library.music_library.Controller.DTO.ArtistRequestDTO;
 import com.music_library.music_library.domain.Artist;
 import java.util.List;
 
-public interface IArtistRepository {
+public interface ArtistRepository {
 
     List<Artist> getAllArtists();
 

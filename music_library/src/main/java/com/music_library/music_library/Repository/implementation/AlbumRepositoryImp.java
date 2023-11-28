@@ -1,6 +1,5 @@
 package com.music_library.music_library.Repository.implementation;
 
-import com.music_library.music_library.Repository.abstraction.IAlbumRepository;
 import com.music_library.music_library.domain.Album;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -10,12 +9,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-import java.util.List;
-
 @Slf4j
 @Repository
 @RequiredArgsConstructor
-public class AlbumRepository implements IAlbumRepository {
+public class AlbumRepositoryImp implements com.music_library.music_library.Repository.Interface.AlbumRepository {
 
     @PersistenceContext
     private final EntityManager entityManager;
