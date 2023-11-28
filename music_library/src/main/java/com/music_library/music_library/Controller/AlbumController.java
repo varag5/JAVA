@@ -1,6 +1,6 @@
 package com.music_library.music_library.Controller;
 
-import com.music_library.music_library.Repository.implementation.AlbumRepository;
+import com.music_library.music_library.Repository.implementation.AlbumRepositoryImp;
 import com.music_library.music_library.domain.Album;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 public class AlbumController {
 
-    private final AlbumRepository albumRepository;
+    private final AlbumRepositoryImp albumRepository;
 
     @GetMapping
     public List<Album> getAllAlbums() {

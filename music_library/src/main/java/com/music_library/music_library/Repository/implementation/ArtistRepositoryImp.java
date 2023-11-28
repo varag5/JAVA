@@ -1,7 +1,6 @@
 package com.music_library.music_library.Repository.implementation;
 
 import com.music_library.music_library.Controller.DTO.ArtistRequestDTO;
-import com.music_library.music_library.Repository.abstraction.IArtistRepository;
 import com.music_library.music_library.domain.Album;
 import com.music_library.music_library.domain.Artist;
 import com.music_library.music_library.domain.Genre;
@@ -9,9 +8,7 @@ import com.music_library.music_library.domain.Song;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
@@ -21,11 +18,11 @@ import java.util.List;
 @Repository
 @RequiredArgsConstructor
 
-public class ArtistRepository implements IArtistRepository {
+public class ArtistRepositoryImp implements com.music_library.music_library.Repository.Interface.ArtistRepository {
 
     @PersistenceContext
     private final EntityManager entityManager;
-    private final GenreRepository genreRepository;
+    private final GenreRepositoryImp genreRepository;
 
     @Override
     public List<Artist> getAllArtists() {

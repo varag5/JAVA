@@ -1,9 +1,8 @@
 package com.music_library.music_library.Security;
 
-import com.music_library.music_library.Repository.abstraction.UserRepository;
+import com.music_library.music_library.Repository.Interface.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
