@@ -20,8 +20,8 @@ The data model is available here: https://dbdiagram.io/d/65480cf47d8bbd646587cff
 
 
 #### Starting the project
-  -Java Development Kit (JDK) 8 or later
- -IntelliJ IDEA (Community or Ultimate edition)
+-Java Development Kit (JDK) 8 or later
+- IntelliJ IDEA (Community or Ultimate edition)
 - reaching databases - available in the music_library/src/main/resources/db
 /migration/ path
 - Endpoints can be seen here: http://localhost:8080/swagger-ui/index.html#/
