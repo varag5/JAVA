@@ -1,16 +1,12 @@
 # ADVANCED JAVA PROJECT
 
-The Music Library Management System is designed to help music fans and collectors organize, manage, and explore music collections. 
-The system will allow users to store information about Artists, Albums, Songs, and Genres. There will be 2 roles for this project: 
+This project is a Music Library implemented in Javat. It manages information about albums, artists, genres, and songs.
+The system allow users to store information about Artists, Albums, Songs, and Genres. There are 2 roles for this project: 
 a normal and an admin user. Admin user are able to delete artists from the database, the other functionalities are valid for the normal user. 
 
 ## Github repository
 The project is available at [https://github.com/varag5/JAVA]
 
-
-#### Reaching endpoints
-
-http://localhost:8080/swagger-ui/index.html#/
 
 
 #### Used Roles
@@ -21,6 +17,18 @@ Role2: NORMAL USER, username: username2, password: user
 #### Data Domain
 
 The data model is available here: https://dbdiagram.io/d/65480cf47d8bbd646587cfff
+
+
+#### Starting the project
+  -Java Development Kit (JDK) 8 or later
+ -IntelliJ IDEA (Community or Ultimate edition)
+- reaching databases - available in the music_library/src/main/resources/db
+/migration/ path
+- Endpoints can be seen here: http://localhost:8080/swagger-ui/index.html#/
+
+
+
+
 
 
 
