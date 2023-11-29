@@ -26,7 +26,7 @@ The UML diagram representing the data domain is available [here](https://dbdiagr
 Follow these steps to get the project up and running:
 
 1. **Database Setup:**
-   - Check the `music_library/src/main/resources/db/migration/` path for migration scripts.
+   - Check the `music_library/src/main/resources/db/migration/` path for the data.
 
 2. **Endpoints:**
    - Access API documentation and endpoints at [Swagger UI](http://localhost:8080/swagger-ui/index.html#/).
