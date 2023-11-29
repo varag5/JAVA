@@ -22,7 +22,6 @@ public class GenreController {
 
     private final GenreRepositoryImp genreRepository;
 
-    //@Operation(summary = "Retrieve paginated list of Genre")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Paginated list of Genres retrieved"),
             @ApiResponse(responseCode = "400", description = "Invalid url")

@@ -2,7 +2,7 @@ package com.music_library.music_library.Controller.DTO;
 
 public class ArtistRequestDTO {
     private String name;
-    private Long genreId; // Assuming you want to associate the artist with a genre by ID
+    private Long genreId;
 
     // Constructors, getters, and setters
 
