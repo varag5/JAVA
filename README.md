@@ -1,30 +1,39 @@
-# ADVANCED JAVA PROJECT
+# Music Library Java Project
 
-This project is a Music Library implemented in Javat. It manages information about albums, artists, genres, and songs.
-The system allow users to store information about Artists, Albums, Songs, and Genres. There are 2 roles for this project: 
-a normal and an admin user. Admin user are able to delete artists from the database, the other functionalities are valid for the normal user. 
-
-## Github repository
-The project is available at [https://github.com/varag5/JAVA]
+This Java project is a Music Library that allows users to manage information about albums, artists, genres, and songs.
 
 
+## Github Repository
 
-#### Used Roles
-Role1: ADMIN, username: username1, password: admin1
-Role2: NORMAL USER, username: username2, password: user
+The source code is available on [GitHub](https://github.com/varag5/JAVA).
 
+### User Roles
 
-#### UML Diagram of the Data Domain
+- **Admin:**
+  - Username: username1
+  - Password: admin1
 
-The data model is available here: https://dbdiagram.io/d/65480cf47d8bbd646587cfff
+- **Normal User:**
+  - Username: username2
+  - Password: user
 
+## UML Diagram
 
-#### Starting the project
-- reaching databases - available in the music_library/src/main/resources/db
-/migration/ path
-- Endpoints can be seen here: http://localhost:8080/swagger-ui/index.html#/
-- IntelliJ IDEA (Community or Ultimate edition)
-- Java Development Kit (JDK) 8 or later
+The UML diagram representing the data domain is available [here](https://dbdiagram.io/d/65480cf47d8bbd646587cfff).
+
+## Getting Started
+
+Follow these steps to get the project up and running:
+
+1. **Database Setup:**
+   - Check the `music_library/src/main/resources/db/migration/` path for the data.
+
+2. **Endpoints:**
+   - Access API documentation and endpoints at [Swagger UI](http://localhost:8080/swagger-ui/index.html#/).
+
+3. **Prerequisites:**
+   - [IntelliJ IDEA](https://www.jetbrains.com/idea/) (Community or Ultimate edition)
+   - [Java Development Kit (JDK)](https://www.oracle.com/java/technologies/javase-downloads.html) 8 or later
 
 
 
